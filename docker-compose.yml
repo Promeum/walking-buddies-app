@@ -1,0 +1,22 @@
+services:
+  frontend:
+    image: walking-buddies-app/frontend
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/frontend/app
+      # - /frontend/app/node_modules
+    ports:
+      - "8081:8081"
+      - "19000:19000"
+      - "19001:19001"
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.163 # Host machine local IP
+  # Backend not started yet
+  # backend:
+  #   image: walking-buddies-app/backend
+  #   build:
+  #     context: backend
+  #     dockerfile: ./Dockerfile
