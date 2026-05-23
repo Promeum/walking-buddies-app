@@ -1,0 +1,6 @@
+{
+    "name": "walking-buddies-app",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "frontend",
+    "workspaceFolder": "/app"
+}
