@@ -4,8 +4,10 @@ services:
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
-    # volumes:
-    #   - ./frontend:/app
+    volumes:
+      - ./frontend:/app
+      # Isolate node_modules inside container post-initialization
+      - /app/node_modules
     develop:
       watch:
         - path: ./frontend

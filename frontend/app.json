@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "WalkingBuddies",
-    "slug": "WalkingBuddies",
+    "name": "Walking Buddies",
+    "slug": "walking-buddies",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "walkingbuddies",
+    "scheme": "walking-buddies",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
@@ -17,7 +17,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.promeum.WalkingBuddies"
     },
     "web": {
       "output": "static",
@@ -34,11 +35,18 @@
             "imageWidth": 76
           }
         }
-      ]
+      ],
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "cc6b3266-a05a-4bb9-92f0-75cd65bf650e"
+      }
     }
   }
 }
