@@ -1,104 +1,119 @@
-import React, { Component } from 'react';
-import { StyleProp, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import * as theme from './theme.ts';
+import React from 'react';
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
+import * as theme from './theme';
 
-const Card = ({ children, style }:
-              {children: Component, style: StyleProp<any>}) => {
-  return (
-    <View style={[style, theme.inline]}>
-      {children}
-    </View>
-  );
+type CardProps = {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
 
-const CardHeader = ({ children, style }:
-                    {children: Component, style: StyleProp<any>}) => {
-  return (
-    <View style={style}> {/* styles.cardHeader */}
-      {children}
-    </View>
-  );
+const Card = ({ children, style }: CardProps) => (
+  <View style={[styles.Card, style]}>
+    {children}
+  </View>
+);
+
+type CardHeaderProps = {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
 
-const CardTitle = ({ children, style }:
-                   {children: Component, style: StyleProp<any>}) => {
-  return (
-    <Text style={style} {...props}> {/* styles.title */}
-      {children}
-    </Text>
-  );
+const CardHeader = ({ children, style }: CardHeaderProps) => (
+  <View style={[styles.CardHeader, style]}>
+    {children}
+  </View>
+);
+
+type CardTitleProps = {
+  children: React.ReactNode;
+  style?: StyleProp<TextStyle>;
 };
 
-const CardDescription = ({ children, style }:
-                         {children: Component, style: StyleProp<any>}) => {
-  return (
-    <Text style={style} {...props}> {/* styles.description */}
-      {children}
-    </Text>
-  );
+const CardTitle = ({ children, style }: CardTitleProps) => (
+  <Text style={[styles.CardTitle, style]}>
+    {children}
+  </Text>
+);
+
+type CardDescriptionProps = {
+  children: React.ReactNode;
+  style?: StyleProp<TextStyle>;
 };
 
-const CardAction = ({ children, style }:
-                    {children: Component, style: StyleProp<any>}) => {
-  return (
-    <TouchableOpacity style={style} onPress={() => props.onPress()}> {/* styles.actionButton */}
-      {children}
-    </TouchableOpacity>
-  );
+const CardDescription = ({ children, style }: CardDescriptionProps) => (
+  <Text style={[styles.CardDescription, style]}>
+    {children}
+  </Text>
+);
+
+type CardActionProps = {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
 };
 
-const CardContent = ({ children, style }:
-                     {children: Component, style: StyleProp<any>}) => {
-  return (
-    <View style={style}> {/* styles.content */}
-      {children}
-    </View>
-  );
+const CardAction = ({ children, style, onPress }: CardActionProps) => (
+  <TouchableOpacity style={[styles.CardAction, style]} onPress={onPress}>
+    {children}
+  </TouchableOpacity>
+);
+
+type CardContentProps = {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
 
-const CardFooter = ({ children, style }:
-                    {children: Component, style: StyleProp<any>}) => {
-  return (
-    <View style={style}>
-      {children}
-    </View>
-  );
+const CardContent = ({ children, style }: CardContentProps) => (
+  <View style={[styles.CardContent, style]}>
+    {children}
+  </View>
+);
+
+type CardFooterProps = {
+  children: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 };
+
+const CardFooter = ({ children, style }: CardFooterProps) => (
+  <View style={[styles.CardFooter, style]}>
+    {children}
+  </View>
+);
 
 const styles = StyleSheet.create({
   Card: {
-    backgroundColor: theme.colorCard,
+    backgroundColor: theme.inline.card,
     padding: 16,
-    borderRadius: theme.radiusMd,
+    borderRadius: theme.inline.radiusMd,
     borderWidth: 1,
-    borderColor: theme.colorBorder,
+    borderColor: theme.inline.border,
   },
   CardAction: {
-    backgroundColor: theme.colorPrimary,
+    backgroundColor: theme.inline.primary,
     padding: 8,
-    borderRadius: theme.radiusSm,
+    borderRadius: theme.inline.radiusSm,
     borderWidth: 1,
-    borderColor: theme.colorBorder,
+    borderColor: theme.inline.border,
   },
   CardContent: {
     padding: 16,
   },
   CardDescription: {
-    fontSize: theme.fontSizeBase,
-    color: theme.colorForeground,
+    fontSize: theme.inline.textBase,
+    color: theme.inline.foreground,
   },
   CardFooter: {
     padding: 8,
     borderTopWidth: 1,
-    borderTopColor: theme.colorBorder,
+    borderTopColor: theme.inline.border,
   },
   CardHeader: {
     padding: 16,
   },
   CardTitle: {
-    fontSize: theme.fontSizeXl,
+    fontSize: theme.inline.textXl,
     fontWeight: 'bold',
-    color: theme.colorForeground,
+    color: theme.inline.foreground,
   }
 });
 
