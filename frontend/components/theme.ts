@@ -40,7 +40,6 @@ const light = {
   sidebarRing: '#FF9A76',
 };
 
-
 const dark = {
   background: chroma.oklch(0.145, 0, 0).hex(),
   foreground: chroma.oklch(0.985, 0, 0).hex(),
@@ -78,7 +77,6 @@ const dark = {
   sidebarRing: chroma.oklch(0.439, 0, 0).hex(),
 };
 
-
 const inline = {
   fontSize: 16,
   textBase: 16,
@@ -111,9 +109,9 @@ const inline = {
   mutedNavy: '#3D4554',
   urbanBlue: '#8B92A8',
 
-  ...(colorScheme === 'dark' ? dark : light)
+  ...light
+  // ...(colorScheme === 'dark' ? dark : light)
 };
-
 
 const base = {
   // * { /* base: StyleSheet.create({...}) */
@@ -127,7 +125,7 @@ const base = {
   html: StyleSheet.create({
     text: {
       fontSize: inline.fontSize,
-      fontFamily: 'Plus Jakarta Sans' //, 'system-ui', -apple-system, sans-serif
+      fontFamily: 'system-ui' //'Plus Jakarta Sans', , -apple-system, sans-serif
     }
   })
 }
@@ -194,5 +192,7 @@ const input = StyleSheet.create({
 });
 
 
-export { base, inline };
+export {
+  base, button, h1, h2, h3, h4, inline, input, label
+};
 
