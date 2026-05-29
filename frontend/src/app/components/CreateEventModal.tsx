@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  Modal,
-  ScrollView,
-  TextInput,
-  Pressable,
-  FlatList,
-  Alert,
+    Alert,
+    Modal,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TextInput,
+    View
 } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useApp } from "../context/AppContext";
 
 const vibeOptions = ["Chill", "Focused", "Social", "Music", "Active", "Creative"];

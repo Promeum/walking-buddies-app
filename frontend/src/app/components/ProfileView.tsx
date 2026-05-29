@@ -1,6 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const interests = [
   { id: 1, label: "Coffee Culture", icon: "coffee" },

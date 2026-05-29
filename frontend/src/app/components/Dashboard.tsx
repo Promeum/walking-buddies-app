@@ -1,6 +1,5 @@
-import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const stats = [
   { id: 1, label: "Hangouts This Week", value: "8", icon: "coffee" },

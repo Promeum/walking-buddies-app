@@ -1,16 +1,15 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useApp } from "./context/AppContext";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 // Screens
-import { HomePage } from "./components/HomePage";
 import { EventDetailsPage } from "./components/EventDetailsPage";
-import { ProfilePage } from "./components/ProfilePage";
 import { FriendsPage } from "./components/FriendsPage";
-import { WalkingTrackerPage } from "./components/WalkingTrackerPage";
+import { HomePage } from "./components/HomePage";
 import { OnboardingFlow } from "./components/OnboardingFlow";
+import { ProfilePage } from "./components/ProfilePage";
+import { WalkingTrackerPage } from "./components/WalkingTrackerPage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

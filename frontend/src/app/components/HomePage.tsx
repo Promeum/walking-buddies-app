@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-  FlatList,
-  Dimensions,
-} from "react-native";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useState } from "react";
+import {
+    Dimensions,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View
+} from "react-native";
 import { useApp } from "../context/AppContext";
-import { ImageWithFallback } from "./ImageWithFallback";
-import { EnhancedMapView } from "./EnhancedMapView";
 import { CreateEventModal } from "./CreateEventModal";
+import { EnhancedMapView } from "./EnhancedMapView";
+import { ImageWithFallback } from "./ImageWithFallback";
 
 const { width } = Dimensions.get("window");
 const quickActionSize = (width - 48 - 18) / 4; // 4 items with padding
