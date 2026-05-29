@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from "@react-native-vector-icons/material-design-icons";
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   Pressable,
@@ -12,14 +12,14 @@ import {
 import { useApp } from "../context/AppContext";
 
 export function FriendsPage() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { friendRequests, friends, acceptFriendRequest, rejectFriendRequest } = useApp();
   const [activeTab, setActiveTab] = useState<"requests" | "friends">("friends");
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-         <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
           <MaterialCommunityIcons name="arrow-left" size={20} color="#333" />
         </Pressable>
         <Text style={styles.headerTitle}>Friends</Text>

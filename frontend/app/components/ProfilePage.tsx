@@ -1,18 +1,18 @@
 import MaterialCommunityIcons from "@react-native-vector-icons/material-design-icons";
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useApp } from "../context/AppContext";
 
 export function ProfilePage() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { currentUser, events, joinedEvents } = useApp();
   const myEvents = events.filter((e) => joinedEvents.has(e.id));
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-         <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
           <MaterialCommunityIcons name="arrow-left" size={20} color="#333" />
         </Pressable>
         <Text style={styles.headerTitle}>Profile</Text>

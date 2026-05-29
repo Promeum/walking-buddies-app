@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from "@react-native-vector-icons/material-design-icons";
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -18,7 +18,7 @@ const { width } = Dimensions.get("window");
 const quickActionSize = (width - 48 - 18) / 4; // 4 items with padding
 
 export function HomePage() {
-  const router = useRouter();
+  const navigation = useNavigation<any>();
   const { events, joinedEvents, joinEvent, friendRequests } = useApp();
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [activeView, setActiveView] = useState<"map" | "events">("map");
@@ -32,7 +32,7 @@ export function HomePage() {
       icon: "walk",
       color: "#FF9A76",
       bgColor: "#FFE5D9",
-      onPress: () => router.push("/components/WalkingTrackerPage"),
+      onPress: () => navigation.navigate("Tracker" as never),
     },
     {
       id: "friends",
@@ -41,7 +41,7 @@ export function HomePage() {
       color: "#8B92A8",
       bgColor: "#D4E4FF",
       badge: pendingRequests.length,
-      onPress: () => router.push("/components/FriendsPage"),
+      onPress: () => navigation.navigate("Friends" as never),
     },
     {
       id: "events",
@@ -57,7 +57,7 @@ export function HomePage() {
       icon: "account-circle",
       color: "#FFB6B9",
       bgColor: "#FFE8F0",
-      onPress: () => router.push("/components/ProfilePage"),
+      onPress: () => navigation.navigate("Profile" as never),
     },
   ];
 
@@ -161,7 +161,7 @@ export function HomePage() {
                   { backgroundColor: event.bgColor },
                 ]}
                 onPress={() =>
-                  router.push({ pathname: "/components/EventDetailsPage", params: { eventId: event.id } })
+                  navigation.navigate("EventDetails" as never, { eventId: event.id } as never)
                 }
               >
                 <View style={styles.eventImageContainer}>

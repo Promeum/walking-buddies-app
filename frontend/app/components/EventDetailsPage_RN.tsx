@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from "@react-native-vector-icons/material-design-icons";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React from "react";
 import {
   Alert,
@@ -14,14 +14,13 @@ import { useApp } from "../context/AppContext";
 import { ImageWithFallback } from "./ImageWithFallback";
 
 export function EventDetailsPage() {
-  const router = useRouter();
-  const { eventId } = useLocalSearchParams();
+  const navigation = useNavigation();
+  const route = useRoute();
   const { events, joinedEvents, joinEvent, leaveEvent } = useApp();
-
-  // Ensure eventId is a string
-  const eventIdStr = Array.isArray(eventId) ? eventId[0] : eventId;
-  const event = events.find((e) => e.id === eventIdStr);
-  const isJoined = eventIdStr ? joinedEvents.has(eventIdStr) : false;
+  
+  const eventId = (route.params as any)?.eventId;
+  const event = events.find((e) => e.id === eventId);
+  const isJoined = eventId ? joinedEvents.has(eventId) : false;
 
   if (!event) {
     return (
@@ -48,7 +47,7 @@ export function EventDetailsPage() {
       <View style={styles.header}>
         <Pressable
           style={styles.backButton}
-          onPress={() => router.back()}
+          onPress={() => navigation.goBack()}
         >
           <MaterialCommunityIcons name="arrow-left" size={24} color="#000" />
         </Pressable>

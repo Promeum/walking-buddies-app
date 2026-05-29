@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from "@react-native-vector-icons/material-design-icons";
-import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   Dimensions,
@@ -46,7 +46,7 @@ const steps = [
 ];
 
 export function OnboardingFlow() {
-  const router = useRouter();
+  const navigation = useNavigation();
   const { completeOnboarding } = useApp();
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -55,15 +55,13 @@ export function OnboardingFlow() {
       setCurrentStep(currentStep + 1);
     } else {
       completeOnboarding();
-      // router.navigate("Main" as never);
-      router.navigate("Main" as never);
+      navigation.navigate("Main" as never);
     }
   };
 
   const handleSkip = () => {
     completeOnboarding();
-    // router.navigate("Main" as never);
-    router.navigate("Main" as never);
+    navigation.navigate("Main" as never);
   };
 
   const step = steps[currentStep];
