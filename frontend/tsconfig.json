@@ -1,21 +1,59 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "jsx": "react",
+    "ignoreDeprecations": "6.0",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
     "strict": true,
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@/assets/*": [
-        "./assets/*"
-      ]
-    }
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "types": [
+      "react",
+      "react-native"
+    ]
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-  ]
+    "App.tsx",
+    "src/app/App.tsx",
+    "src/app/routes.tsx",
+    "src/app/context/**/*",
+    "src/app/components/HomePage.tsx",
+    "src/app/components/CreateEventModal.tsx",
+    "src/app/components/EventDetailsPage.tsx",
+    "src/app/components/FriendsPage.tsx",
+    "src/app/components/ProfilePage.tsx",
+    "src/app/components/WalkingTrackerPage.tsx",
+    "src/app/components/OnboardingFlow.tsx",
+    "src/app/components/EnhancedMapView.tsx",
+    "src/app/components/ImageWithFallback.tsx",
+    "src/app/components/ActivitiesBoard.tsx",
+    "src/app/components/BottomNav.tsx",
+    "src/app/components/Dashboard.tsx",
+    "src/app/components/MapView.tsx",
+    "src/app/components/ProfileView.tsx",
+    "src/app/components/Root.tsx",
+    "src/app/components/StatusBar.tsx",
+    "src/app/components/WelcomeOverlay.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/app/components/ui",
+    "src/app/components/ActivitiesBoard.tsx",
+    "src/app/components/BottomNav.tsx",
+    "src/app/components/Dashboard.tsx",
+    "src/app/components/MapView.tsx",
+    "src/app/components/ProfileView.tsx",
+    "src/app/components/Root.tsx",
+    "src/app/components/StatusBar.tsx",
+    "src/app/components/WelcomeOverlay.tsx",
+    "src/main.tsx",
+    "src/**/*test.tsx",
+    "src/**/*spec.tsx"
+  ],
+  "extends": "expo/tsconfig.base"
 }

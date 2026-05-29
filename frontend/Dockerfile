@@ -7,7 +7,7 @@ WORKDIR /app
 # Install global dependencies
 RUN npm install -g npm@latest
 # RUN npm install -g expo-cli @expo/ngrok@^4.1.0
-RUN npm install -g @expo/ngrok@^4.1.0
+# RUN npm install -g @expo/ngrok@^4.1.0
 RUN node --version && npm --version
 
 # Copy package files and install packages
